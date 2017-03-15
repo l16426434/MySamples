@@ -1,0 +1,28 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "config.gradle"
+// gradle脚本自身需要使用的资源。可以声明的资源包括依赖项、第三方插件、maven仓库地址等。
+buildscript {
+    repositories {// 声明仓库源
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.4.0-alpha1'// 声明gradle插件的版本
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+// 所有Project默认的仓库源
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+// 声明一个名为clean的任务，作用是每当修改settings.gradle文件后点击同步，就会删除rootProject.buildDir下的文件(清除了External Libraries里的包，重新添加一次)
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

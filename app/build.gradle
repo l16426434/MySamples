@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+def config = rootProject.ext.android // 配置
+def dep = rootProject.ext.dependencies // 依赖
+android {
+    compileSdkVersion config.compileSdkVersion// 编译的SDK版本
+    buildToolsVersion config.buildToolsVersion// 编译的tools版本
+    defaultConfig {
+        applicationId "com.example.liujishun.mysamples"// 包名
+        minSdkVersion config.minSdkVersion// 支持的最低SDK版本
+        targetSdkVersion config.targetSdkVersion// 支持的目标版本
+        versionCode config.versionCode// 版本号
+        versionName config.versionName//版本名称
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false//关闭混淆
+            //指定proguard文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+//        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/LICENSE'
+        exclude('META-INF/LICENSE.txt')
+        exclude('META-INF/NOTICE.txt')
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        disable "InvalidPackage"
+        disable "MissingTranslation" // 禁用中英文string.xml的强制lint
+        lintConfig file("lint.xml")
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':mbase')
+    //di
+    compile dep.butterknife
+    annotationProcessor dep.butterknife_compiler
+    compile dep.dagger
+    annotationProcessor dep.dagger_compiler
+    //ui
+    compile dep.tablayout
+    compile dep.fragmentation
+    compile dep.stateLayout
+    compile dep.pullloadmorerecyclerview
+    compile (dep.takephoto){
+        exclude module: 'rxjava'//排除 rxjava 模块
+        exclude module: 'rxandroid'
+    }
+    //other
+    compile dep.BaseRecyclerViewAdapterHelper
+    compile dep.stetho
+    compile dep.stetho_okhttp3
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+}

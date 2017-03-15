@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lufficc.stateLayout.StateLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/activity_main2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/mvp"
+                    android:layout_width="300px"
+                    android:layout_height="200px"
+                    android:text="mvp"/>
+
+                <Button
+                    android:id="@+id/log"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="log"/>
+
+                <Button
+                    android:id="@+id/pullLoadMoreRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="pullload"/>
+
+                <Button
+                    android:id="@+id/bitmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="bitmap"/>
+
+                <Button
+                    android:id="@+id/common_adapter"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="fragment"/>
+
+                <Button
+                    android:id="@+id/compressor"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="segmentTagActivity"/>
+
+                <Button
+                    android:id="@+id/dialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="dialog"/>
+
+                <Button
+                    android:id="@+id/fresco"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="fresco"/>
+
+                <Button
+                    android:id="@+id/html"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="html"/>
+
+                <Button
+                    android:id="@+id/rxjava"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="rxjava"/>
+
+                <Button
+                    android:id="@+id/sqlite"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="sqlite"/>
+
+                <Button
+                    android:id="@+id/rxBus"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="rxbus"/>
+
+                <Button
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="title"/>
+
+                <Button
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="webview"/>
+
+                <Button
+                    android:id="@+id/demo"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="demo"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</com.lufficc.stateLayout.StateLayout>
